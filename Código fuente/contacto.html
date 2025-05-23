@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Hogar D'muebles</title>
+    <meta name="description" content="Contáctanos para consultas, pedidos o más información sobre nuestros muebles.">
+    <link rel="stylesheet" href="contacto.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="ruta/a/tu/logo.png" alt="Hogar de Muebles" width="250"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="carrito">
+            <a href="carrito.html">Carrito (0)</a>
+        </div>
+    </header>
+
+    <main class="contenedor-principal">
+        <section class="contacto">
+            <h1>Contáctanos</h1>
+            <p>
+                Puedes contactarnos a través de los siguientes medios:
+            </p>
+            <ul>
+                <li><strong>Teléfono:</strong> +51 918429289</li>
+                <li><strong>Email:</strong> demuebleshogar@gmail.com</li>
+                <li><strong>Dirección:</strong> Urb. San José JR "C" 137, Lima</li>
+            </ul>
+            <form action="/enviar-formulario-contacto" method="post">
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="campo">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="campo">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="boton-principal">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="informacion-contacto">
+            <p>Teléfono: +51 918429289</p>
+            <p>Email: demuebleshogar@gmail.com</p>
+            <p>Dirección: Urb. San José JR "C" 137, Lima</p>
+        </div>
+        <div class="redes-sociales">
+            <a href="#"><img src="facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        </div>
+        <p class="copyright">&copy; 2023 Tu Tienda de Muebles de Melamina. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+    // Ejemplo de validación básica del formulario de contacto
+    document.querySelector('form').addEventListener('submit', (event) => {
+        const nombre = document.getElementById('nombre').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const mensaje = document.getElementById('mensaje').value.trim();
+
+        if (nombre === '' || email === '' || mensaje === '') {
+            event.preventDefault(); // Evita que se envíe el formulario
+            alert('Por favor, completa todos los campos.');
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            event.preventDefault();
+            alert('Por favor, ingresa un correo electrónico válido.');
+        }
+        // Aquí podrías agregar más validaciones
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif; /* Fuente más moderna */
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5dc;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Encabezado */
+header {
+  background-color: #222;
+  color: #f0e68c;
+  padding: 1.5em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+.logo img {
+  max-height: 60px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 2em;
+}
+
+nav ul li a {
+  color: #f0e68c;
+  text-decoration: none;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+  font-weight: 400;
+}
+
+nav ul li a:hover {
+  color: #d4af37;
+  font-weight: 600;
+}
+
+.carrito a {
+  color: #f0e68c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 400;
+}
+
+.carrito a:hover {
+  color: #d4af37;
+  font-weight: 600;
+}
+
+/* Sección principal (Hero) */
+.hero {
+  background-color: #f8f8f0;
+  color: #333;
+  padding: 5em 2em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center;
+  /* Nueva propiedad: background-image */
+  background-image: url('../Multimedia/fondo.jpg'); /* Agrega la ruta de tu imagen aquí */
+  /* Opcional: Ajusta el comportamiento de la imagen de fondo */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.hero h1 {
+  color: #222;
+  margin-bottom: 0.5em;
+  font-size: 4em;
+  letter-spacing: -0.02em;
+  /* Añadido para mejorar la legibilidad sobre la imagen de fondo */
+  background-color: rgba(248, 248, 240, 0.7); /* Beige claro con opacidad */
+  padding: 0.2em 0.5em; /* Añade un poco de padding al texto */
+  border-radius: 6px; /* Redondea los bordes del fondo del texto */
+}
+
+.hero p {
+  font-size: 1.3em;
+  margin-bottom: 2em;
+  color: #444;
+  max-width: 80%;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
+  /* Añadido para mejorar la legibilidad sobre la imagen de fondo */
+  background-color: rgba(248, 248, 240, 0.7); /* Beige claro con opacidad */
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
+}
+
+.boton-principal {
+  display: inline-block;
+  background-color: #f0e68c;
+  color: #222;
+  padding: 1.2em 2.5em;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1.1em;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+.boton-principal:hover {
+  background-color: #d4af37;
+  transform: scale(1.05);
+}
+
+
+.boton-principal {
+  display: inline-block;
+  background-color: #f0e68c;
+  color: #222;
+  padding: 1.2em 2.5em;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1.1em;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+.boton-principal:hover {
+  background-color: #d4af37;
+  transform: scale(1.05);
+}
+
+/* Sección de categorías principales */
+.categorias-principales {
+  padding: 4em 2em;
+  text-align: center;
+}
+
+.categorias-principales h2 {
+  color: #222;
+  margin-bottom: 1.5em;
+  font-size: 2em;
+  letter-spacing: -0.02em;
+}
+
+.grid-categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 2em;
+}
+
+.categoria {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.categoria a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+
+.categoria img {
+  width: 100%;
+  display: block;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.categoria img:hover {
+   transform: scale(1.1);
+}
+
+.categoria h3 {
+  padding: 1.2em;
+  text-align: center;
+  background-color: #f5f5dc;
+  font-size: 1.2em;
+  font-weight: 600;
+  border-top: 1px solid #eee;
+}
+
+/* Pie de página */
+footer {
+  background-color: #222;
+  color: #f0e68c;
+  padding: 2.5em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4em;
+}
+
+.informacion-contacto p {
+  margin: 0.7em 0;
+  font-size: 1.1em;
+}
+
+.redes-sociales {
+  margin: 1.5em 0;
+  display: flex;
+  gap: 1em;
+}
+
+.redes-sociales a {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.redes-sociales a:hover {
+  transform: scale(1.2);
+}
+
+.redes-sociales img {
+  height: 40px;
+  width: auto;
+}
+
+.copyright {
+  font-size: 0.9em;
+  margin-top: 1.5em;
+  color: #ddd;
+}
+
+/* Estilos para enlaces dentro del texto */
+a {
+  color: #0078d7;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
