@@ -1,31 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hogar D'muebles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Encuentra muebles de melamina de alta calidad para tu hogar. ¡Visítanos!">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="../Multimedia/WhatsApp Image 2025-04-22 at 12.09.44 AM.jpeg" type="image/x.icon"
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="../Multimedia/WhatsApp Image 2025-04-22 at 12.09.44 AM.jpeg" alt="Hogar de Muebles"width="250"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="sobrenosotros.html">Sobre Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="carrito">
+        <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (0)</a>
+        </div>
+    </header>
+
     <title>Registro de Comprador</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5dc;
-            color: #333;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        /* Estilos generales */
+body {
+    font-family: 'Montserrat', 'Arial', sans-serif; /* Usamos Montserrat y Arial como fallback */
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5dc;
+    color: #333;
+    line-height: 1.6;
+}
 
-        .formulario-registro {
-            background-color: #fff;
-            padding: 2.5em;
-            border-radius: 10px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-            max-width: 600px;
-            width: 100%;
-            margin-bottom: 2em;
-        }
+/* Puedes mantener 'Arial' en otras partes si lo prefieres o reemplazarlo gradualmente */
+
+/* Encabezado */
+header {
+  background-color: #222;
+  color: #f0e68c;
+  padding: 1.5em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+.logo img {
+  max-height: 50px;
+  max-width: 50px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 2em;
+}
+
+nav ul li a {
+  color: #f0e68c;
+  text-decoration: none;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+  font-weight: 400;
+}
+
+nav ul li a:hover {
+  color: #d4af37;
+  font-weight: 600;
+}
+
+.carrito a {
+  color: #f0e68c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 400;
+}
+
+.carrito a:hover {
+  color: #d4af37;
+  font-weight: 600;
+}
+
+.formulario-registro {
+    background-color: #fff;
+    padding: 2.5em;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    width: 90%; /* Para que no sea demasiado ancho en pantallas pequeñas */
+    margin: 3em auto; /* El 'auto' en los márgenes horizontales centra el bloque */
+}
 
         .formulario-registro h2 {
             color: #222;

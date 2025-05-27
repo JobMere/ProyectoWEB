@@ -1,6 +1,6 @@
 /* Estilos generales */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Montserrat', 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f5f5dc;
@@ -27,7 +27,8 @@ header {
 }
 
 .logo img {
-    max-height: 60px;
+    max-height: 50px;
+    max-width: 50px;
     transition: transform 0.2s ease-in-out;
 }
 
@@ -223,4 +224,49 @@ a {
 a:hover {
     color: #0056b3;
     text-decoration: underline;
+}
+/* Media query para pantallas más pequeñas (ej. tablets) */
+@media (max-width: 768px) {
+    .contenedor-principal {
+        padding: 3em 1em;
+    }
+
+    .contacto {
+        padding: 1.5em;
+    }
+
+    .contacto h1 {
+        font-size: 2em;
+    }
+
+    .contacto p {
+        font-size: 1em;
+    }
+
+    .contacto ul li {
+        font-size: 1em;
+    }
+
+    .contacto form {
+        gap: 1em;
+    }
+
+    .contacto button {
+        width: 100%;
+    }
+}
+
+/* Media query para pantallas aún más pequeñas (ej. móviles) */
+@media (max-width: 480px) {
+    .contacto h1 {
+        font-size: 1.8em;
+    }
+
+    .contacto p {
+        font-size: 0.9em;
+    }
+
+    .contacto ul li {
+        font-size: 0.9em;
+    }
 }

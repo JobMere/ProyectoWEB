@@ -29,7 +29,8 @@ header {
 }
 
 .logo img {
-  max-height: 60px;
+  max-height: 50px;
+  max-width: 50px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -276,4 +277,82 @@ a {
 a:hover {
   color: #0056b3;
   text-decoration: underline;
+}
+
+/* Media query para pantallas más pequeñas (ej. tablets) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+    }
+
+    .logo {
+        margin-bottom: 1em;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5em 0;
+        margin-left: 0;
+    }
+
+    .hero {
+        padding: 3em 1em;
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: 3em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+        max-width: 95%;
+    }
+
+    .grid-categorias {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .categoria img {
+        height: 180px;
+    }
+
+    footer {
+        padding: 2em;
+    }
+
+    .redes-sociales {
+        margin: 1em 0;
+    }
+}
+
+/* Media query para pantallas aún más pequeñas (ej. móviles) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .grid-categorias {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+    }
+
+    .categoria img {
+        height: 200px; /* Ajustamos la altura para una sola columna */
+    }
+
+    .informacion-contacto p {
+        font-size: 1em;
+        margin: 0.5em 0;
+    }
 }
