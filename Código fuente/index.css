@@ -1,12 +1,14 @@
 /* Estilos generales */
 body {
-  font-family: 'Arial', sans-serif; /* Fuente más moderna */
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5dc;
-  color: #333;
-  line-height: 1.6;
+    font-family: 'Montserrat', 'Arial', sans-serif; /* Usamos Montserrat y Arial como fallback */
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5dc;
+    color: #333;
+    line-height: 1.6;
 }
+
+/* Puedes mantener 'Arial' en otras partes si lo prefieres o reemplazarlo gradualmente */
 
 /* Encabezado */
 header {
