@@ -155,62 +155,72 @@ nav ul li a:hover {
 
 /* Sección de categorías principales */
 .categorias-principales {
-  padding: 4em 2em;
-  text-align: center;
+    padding: 4em 2em;
+    text-align: center;
 }
 
 .categorias-principales h2 {
-  color: #222;
-  margin-bottom: 1.5em;
-  font-size: 2em;
-  letter-spacing: -0.02em;
+    color: #222;
+    margin-bottom: 1.5em;
+    font-size: 2em;
+    letter-spacing: -0.02em;
 }
 
 .grid-categorias {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustamos el ancho mínimo */
+    gap: 20px; /* Reducimos un poco el espacio entre las categorías */
+    margin-top: 2em;
+    padding: 0 1em; /* Añadimos un poco de padding a los lados en pantallas más grandes */
 }
 
 .categoria {
-  background-color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Añadimos flex para alinear la imagen y el texto */
+    flex-direction: column;
+    height: 100%; /* Asegura que todas las categorías tengan la misma altura */
 }
 
 .categoria:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* Reducimos un poco el efecto hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .categoria a {
-  display: block;
-  text-decoration: none;
-  color: #333;
+    display: flex; /* Hacemos el enlace un contenedor flex también */
+    flex-direction: column;
+    text-decoration: none;
+    color: #333;
+    height: 100%; /* Para que el enlace cubra toda la tarjeta */
 }
 
 .categoria img {
-  width: 100%;
-  display: block;
-  height: 250px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+    width: 100%;
+    display: block;
+    height: 200px; /* Ajustamos la altura de las imágenes */
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .categoria img:hover {
-   transform: scale(1.1);
+    transform: scale(1.05); /* Reducimos un poco el zoom al hover */
 }
 
 .categoria h3 {
-  padding: 1.2em;
-  text-align: center;
-  background-color: #f5f5dc;
-  font-size: 1.2em;
-  font-weight: 600;
-  border-top: 1px solid #eee;
+    padding: 1em; /* Reducimos el padding vertical */
+    text-align: center;
+    background-color: #f5f5dc;
+    font-size: 1.1em; /* Reducimos el tamaño de la fuente */
+    font-weight: 600;
+    border-top: 1px solid #eee;
+    flex-grow: 1; /* Empuja el título hacia abajo para igualar alturas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Pie de página */
