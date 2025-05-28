@@ -44,54 +44,26 @@
         </div>
     </header>
 
-  <!-- Contenido principal - Sección del carrito -->
-<main class="contenedor-principal">
-    <section class="carrito-compras" aria-label="Contenido del carrito de compras">
-        <h1>Tu Carrito de Compras</h1>
-        
-        <!-- Lista de productos en el carrito -->
-        <div id="lista-carrito">
-            <div class="item-carrito">
-                <img src="mueble1.jpg" alt="Mesa de centro en melamina blanca" width="100" height="100" loading="lazy">
-                <div class="detalles-item">
-                    <h2>Mesa de Centro Moderna</h2>
-                    <p>Precio: <span class="precio-unitario">199.99</span> PEN</p>
-                    <label for="cantidad-mueble1">Cantidad:</label>
-                    <input type="number" id="cantidad-mueble1" 
-                           min="1" max="10" value="1"
-                           aria-label="Cantidad de Mesa de Centro Moderna">
-                </div>
-                <button class="boton-eliminar" 
-                        aria-label="Eliminar Mesa de Centro Moderna">
-                    Eliminar
-                </button>
+    <!-- Contenido principal - Sección del carrito -->
+    <main class="contenedor-principal">
+        <section class="carrito-compras" aria-label="Contenido del carrito de compras">
+            <h1>Tu Carrito de Compras</h1>
+            
+            <!-- Lista de productos en el carrito -->
+            <div id="lista-carrito"></div>
+
+            <!-- Total de la compra -->
+            <div class="total-carrito">
+                <strong>Total: <span id="total-compra">0.00</span> PEN</strong>
             </div>
-        </div>
 
-        <!-- Total de la compra -->
-        <div class="total-carrito">
-            <strong>Total: <span id="total-compra">199.99</span> PEN</strong>
-        </div>
-
-        <!-- Acciones del carrito -->
-        <div class="acciones-carrito">
-            <a href="catalogo.html" class="boton-secundario">Seguir Comprando</a>
-            <a href="formulario.html" class="boton-principal">Finalizar Compra</a>
-        </div>
-    </section>
-
-    <!-- Sección para agregar nuevos productos -->
-    <section class="agregar-producto" aria-label="Agregar productos al carrito">
-        <h2>Agregar Producto</h2>
-        <select id="select-producto">
-            <option value="mueble1" data-precio="199.99">Mesa de Centro Moderna - 199.99 PEN</option>
-            <option value="mueble2" data-precio="299.99">Silla Ejecutiva - 299.99 PEN</option>
-            <option value="mueble3" data-precio="399.99">Mesa de Comedor - 399.99 PEN</option>
-        </select>
-        <button id="btn-agregar">Agregar al Carrito</button>
-    </section>
-</main>
-
+            <!-- Acciones del carrito -->
+            <div class="acciones-carrito">
+                <a href="catalogo.html" class="boton-secundario">Seguir Comprando</a>
+                <a href="formulario.html" class="boton-principal">Finalizar Compra</a>
+            </div>
+        </section>
+    </main>
 
     <!-- Pie de página con información de contacto y redes sociales -->
     <footer aria-label="Información de contacto y redes sociales">
@@ -131,73 +103,66 @@
             }, 3000);
         }
 
-        // Función para actualizar el total del carrito
-        function actualizarTotal() {
+        // Función para cargar el carrito desde localStorage
+        function cargarCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const listaCarrito = document.getElementById('lista-carrito');
+            listaCarrito.innerHTML = ''; // Limpiar la lista antes de cargar
+
             let total = 0;
-            
-            // Calcula el total sumando todos los productos
-            document.querySelectorAll('.item-carrito').forEach(item => {
-                const precio = parseFloat(item.querySelector('.precio-unitario').textContent);
-                const cantidad = parseInt(item.querySelector('input').value) || 0;
-                total += precio * cantidad;
+
+            carrito.forEach(item => {
+                const itemCarrito = document.createElement('div');
+                itemCarrito.classList.add('item-carrito');
+                itemCarrito.innerHTML = `
+                    <img src="${item.imagen}" alt="${item.nombre}" width="100" height="100" loading="lazy">
+                    <div class="detalles-item">
+                        <h2>${item.nombre}</h2>
+                        <p>Precio: <span class="precio-unitario">${item.precio}</span> PEN</p>
+                        <label for="cantidad-${item.nombre.replace(/\s+/g, '')}">Cantidad:</label>
+                        <input type="number" id="cantidad-${item.nombre.replace(/\s+/g, '')}" 
+                               min="1" max="10" value="${item.cantidad}" 
+                               aria-label="Cantidad de ${item.nombre}">
+                    </div>
+                    <button class="boton-eliminar" aria-label="Eliminar ${item.nombre}">Eliminar</button>
+                `;
+                listaCarrito.appendChild(itemCarrito);
+                total += item.precio * item.cantidad; // Calcular el total
             });
-            
-            // Formatea y muestra el total
+
             document.getElementById('total-compra').textContent = total.toFixed(2);
+            actualizarContador();
+            configurarBotonesEliminar();
         }
 
         // Función para actualizar el contador de productos
         function actualizarContador() {
-            const totalItems = document.querySelectorAll('.item-carrito').length;
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
             document.getElementById('contador-carrito').textContent = totalItems;
         }
 
-        // Función para guardar el carrito en localStorage
-        function guardarCarrito() {
-            const carrito = [];
-            document.querySelectorAll('.item-carrito').forEach(item => {
-                carrito.push({
-                    nombre: item.querySelector('h2').textContent,
-                    precio: item.querySelector('.precio-unitario').textContent,
-                    cantidad: item.querySelector('input').value,
-                    imagen: item.querySelector('img').src
-                });
-            });
-            localStorage.setItem('carrito', JSON.stringify(carrito));
-        }
-
-        // Event listeners cuando el DOM está cargado
-        document.addEventListener('DOMContentLoaded', () => {
-            // Configura los botones de eliminar
+        // Función para configurar los botones de eliminar
+        function configurarBotonesEliminar() {
             document.querySelectorAll('.boton-eliminar').forEach(btn => {
                 btn.addEventListener('click', function() {
-                    this.setAttribute('disabled', 'true');
-                    this.closest('.item-carrito').style.opacity = '0';
-                    
-                    setTimeout(() => {
-                        this.closest('.item-carrito').remove();
-                        actualizarTotal();
-                        actualizarContador();
-                        guardarCarrito();
-                        mostrarToast("Producto eliminado del carrito");
-                    }, 300);
+                    const nombreProducto = this.closest('.item-carrito').querySelector('h2').textContent;
+                    eliminarProducto(nombreProducto);
                 });
             });
+        }
 
-            // Configura los inputs de cantidad
-            document.querySelectorAll('input[type="number"]').forEach(input => {
-                input.addEventListener('change', () => {
-                    if(input.value < 1) input.value = 1;
-                    if(input.value > 10) input.value = 10;
-                    actualizarTotal();
-                    guardarCarrito();
-                });
-            });
+        // Función para eliminar un producto del carrito
+        function eliminarProducto(nombre) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito = carrito.filter(item => item.nombre !== nombre);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            cargarCarrito();
+            mostrarToast(`${nombre} eliminado del carrito`);
+        }
 
-            // Inicializa los valores
-            actualizarTotal();
-            actualizarContador();
-        });
+        // Event listener cuando el DOM está cargado
+        document.addEventListener('DOMContentLoaded', cargarCarrito);
     </script>
 </body>
 </html>
