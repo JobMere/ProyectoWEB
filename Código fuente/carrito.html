@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo - Hogar D'muebles</title>
-    <meta name="description" content="Explora nuestro catálogo de muebles de melamina para tu hogar.">
-    <link rel="stylesheet" href="catalogo.css">
+    <title>Carrito de Compras - Hogar D'muebles</title>
+    <meta name="description" content="Gestiona los productos en tu carrito de compras">
+    
+    <!-- Fuentes y estilos externos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="carritodecompras.css">
 </head>
+
 <body>
-    <header>
+    <!-- Cabecera del sitio con logo, navegación y carrito -->
+    <header aria-label="Cabecera principal">
         <div class="logo">
-            <a href="index.html"><img src="../Multimedia/WhatsApp Image 2025-04-22 at 12.09.44 AM.jpeg" alt="Hogar de Muebles" width="250"></a>
+            <a href="index.html">
+                <img src="../Multimedia/logo.jpg" alt="Hogar D'muebles - Inicio" width="250" height="80" loading="lazy">
+            </a>
         </div>
-        <nav>
+        
+        <!-- Menú de navegación principal -->
+        <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
@@ -25,90 +34,170 @@
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
+        
+        <!-- Icono del carrito con contador -->
         <div class="carrito">
-    <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (0)</a>
-</div>
+            <a href="carrito.html" aria-label="Carrito de compras">
+                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                <span id="contador-carrito">0</span>
+            </a>
+        </div>
     </header>
 
-
-    <div class="carrito">
-    <a href="carrito.html">Carrito (1)</a>
-</div>
-<link rel="stylesheet" href="carritodecompras.css">
-</header>
-
+  <!-- Contenido principal - Sección del carrito -->
 <main class="contenedor-principal">
-<section class="carrito-compras">
-    <h2>Tu Carrito de Compras</h2>
-    <div class="item-carrito">
-        <img src="ruta/a/imagen/mueble1.jpg" alt="Mueble en el carrito" width="100">
-        <div class="detalles-item">
-            <h3>Nombre del Mueble</h3>
-            <p>Precio: S/ 199.99</p>
-            <label for="cantidad-mueble1">Cantidad:</label>
-            <input type="number" id="cantidad-mueble1" name="cantidad-mueble1" value="1" min="1">
+    <section class="carrito-compras" aria-label="Contenido del carrito de compras">
+        <h1>Tu Carrito de Compras</h1>
+        
+        <!-- Lista de productos en el carrito -->
+        <div id="lista-carrito">
+            <div class="item-carrito">
+                <img src="mueble1.jpg" alt="Mesa de centro en melamina blanca" width="100" height="100" loading="lazy">
+                <div class="detalles-item">
+                    <h2>Mesa de Centro Moderna</h2>
+                    <p>Precio: <span class="precio-unitario">199.99</span> PEN</p>
+                    <label for="cantidad-mueble1">Cantidad:</label>
+                    <input type="number" id="cantidad-mueble1" 
+                           min="1" max="10" value="1"
+                           aria-label="Cantidad de Mesa de Centro Moderna">
+                </div>
+                <button class="boton-eliminar" 
+                        aria-label="Eliminar Mesa de Centro Moderna">
+                    Eliminar
+                </button>
+            </div>
         </div>
-        <button class="boton-eliminar">Eliminar</button>
-    </div>
 
-    <div class="total-carrito">
-        <strong>Total: S/ 199.99</strong>
-    </div>
+        <!-- Total de la compra -->
+        <div class="total-carrito">
+            <strong>Total: <span id="total-compra">199.99</span> PEN</strong>
+        </div>
 
-    <div class="acciones-carrito">
-        <a href="catalogo.html" class="boton-secundario">Seguir Comprando</a>
-        <a href="formulario.html" class="boton-principal">Finalizar Compra</a>
-    </div>
-</section>
-<footer>
-    <div class="informacion-contacto">
-        <p>Teléfono: +51 918429289</p>
-        <p>Email: demuebleshogar@gmail.com</p>
-        <p>Dirección: Urb. San José JR "C" 137, Lima</p>
-    </div>
-    <div class="redes-sociales">
-        <a href="https://www.facebook.com/share/1GbW6htRDd/" target="_blank"><img src="https://ylva-verlag.de/wp-content/uploads/2020/07/facebook-800x800.png" alt="Facebook"></a>
-        <a href="https://www.instagram.com/hogardmuebles?igsh=NDh6NGc1dmhhbHg4" target="_blank"><img src="https://png.pngtree.com/png-clipart/20221019/original/pngtree-instagram-icon-png-image_8704817.png" alt="Instagram"></a>
-    </div>
-    <p class="copyright">&copy; 2023 Tu Tienda de Muebles de Melamina. Todos los derechos reservados.</p>
-</footer>
-<script>
-    // Seleccionamos todos los botones con clase "boton-eliminar"
-    document.querySelectorAll('.boton-eliminar').forEach(boton => {
-        boton.addEventListener('click', function () {
-            // Encontramos el elemento padre (el item del carrito) y lo eliminamos
-            const item = this.closest('.item-carrito');
-            if (item) {
-                item.remove();
-                actualizarTotal(); // Llama a una función para actualizar el total (opcional)
-            }
-        });
-    });
+        <!-- Acciones del carrito -->
+        <div class="acciones-carrito">
+            <a href="catalogo.html" class="boton-secundario">Seguir Comprando</a>
+            <a href="formulario.html" class="boton-principal">Finalizar Compra</a>
+        </div>
+    </section>
 
-    function actualizarTotal() {
-        const items = document.querySelectorAll('.item-carrito');
-        let total = 0;
-
-        items.forEach(item => {
-            const precioTexto = item.querySelector('p').textContent;
-            const cantidad = item.querySelector('input').value;
-            const precio = parseFloat(precioTexto.replace('Precio: S/ ', '').replace(',', '.'));
-            total += precio * cantidad;
-        });
-
-        const totalCarrito = document.querySelector('.total-carrito strong');
-        if (totalCarrito) {
-            totalCarrito.textContent = `Total: S/ ${total.toFixed(2)}`;
-        }
-    }
-    // Aquí puedes agregar la lógica para agregar productos al carrito con JavaScript
-    const botonesAgregarCarrito = document.querySelectorAll('.boton-principal');
-    botonesAgregarCarrito.forEach(boton => {
-        boton.addEventListener('click', () => {
-            // Obtener información del producto y agregar al carrito
-            alert('Producto agregado al carrito'); // Esto es solo un ejemplo
-        });
-    });
-</script>
-</body>
+    <!-- Sección para agregar nuevos productos -->
+    <section class="agregar-producto" aria-label="Agregar productos al carrito">
+        <h2>Agregar Producto</h2>
+        <select id="select-producto">
+            <option value="mueble1" data-precio="199.99">Mesa de Centro Moderna - 199.99 PEN</option>
+            <option value="mueble2" data-precio="299.99">Silla Ejecutiva - 299.99 PEN</option>
+            <option value="mueble3" data-precio="399.99">Mesa de Comedor - 399.99 PEN</option>
+        </select>
+        <button id="btn-agregar">Agregar al Carrito</button>
+    </section>
 </main>
+
+
+    <!-- Pie de página con información de contacto y redes sociales -->
+    <footer aria-label="Información de contacto y redes sociales">
+        <div class="informacion-contacto">
+            <p>Teléfono: +51 918429289</p>
+            <p>Email: demuebleshogar@gmail.com</p>
+            <p>Dirección: Urb. San José JR "C" 137, Lima</p>
+        </div>
+        
+        <!-- Enlaces a redes sociales -->
+        <div class="redes-sociales">
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                <img src="facebook-icon.png" alt="Facebook" width="40" height="40" loading="lazy">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                <img src="instagram-icon.png" alt="Instagram" width="40" height="40" loading="lazy">
+            </a>
+        </div>
+        
+        <p class="copyright">&copy; 2023 Hogar D'muebles. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Notificación toast para mensajes al usuario -->
+    <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+
+    <!-- Scripts de funcionalidad del carrito -->
+    <script>
+        // Función para mostrar notificaciones toast
+        function mostrarToast(mensaje) {
+            const toast = document.getElementById("toast");
+            toast.textContent = mensaje;
+            toast.classList.add("show");
+            
+            // Oculta el toast después de 3 segundos
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 3000);
+        }
+
+        // Función para actualizar el total del carrito
+        function actualizarTotal() {
+            let total = 0;
+            
+            // Calcula el total sumando todos los productos
+            document.querySelectorAll('.item-carrito').forEach(item => {
+                const precio = parseFloat(item.querySelector('.precio-unitario').textContent);
+                const cantidad = parseInt(item.querySelector('input').value) || 0;
+                total += precio * cantidad;
+            });
+            
+            // Formatea y muestra el total
+            document.getElementById('total-compra').textContent = total.toFixed(2);
+        }
+
+        // Función para actualizar el contador de productos
+        function actualizarContador() {
+            const totalItems = document.querySelectorAll('.item-carrito').length;
+            document.getElementById('contador-carrito').textContent = totalItems;
+        }
+
+        // Función para guardar el carrito en localStorage
+        function guardarCarrito() {
+            const carrito = [];
+            document.querySelectorAll('.item-carrito').forEach(item => {
+                carrito.push({
+                    nombre: item.querySelector('h2').textContent,
+                    precio: item.querySelector('.precio-unitario').textContent,
+                    cantidad: item.querySelector('input').value,
+                    imagen: item.querySelector('img').src
+                });
+            });
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+        }
+
+        // Event listeners cuando el DOM está cargado
+        document.addEventListener('DOMContentLoaded', () => {
+            // Configura los botones de eliminar
+            document.querySelectorAll('.boton-eliminar').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.setAttribute('disabled', 'true');
+                    this.closest('.item-carrito').style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        this.closest('.item-carrito').remove();
+                        actualizarTotal();
+                        actualizarContador();
+                        guardarCarrito();
+                        mostrarToast("Producto eliminado del carrito");
+                    }, 300);
+                });
+            });
+
+            // Configura los inputs de cantidad
+            document.querySelectorAll('input[type="number"]').forEach(input => {
+                input.addEventListener('change', () => {
+                    if(input.value < 1) input.value = 1;
+                    if(input.value > 10) input.value = 10;
+                    actualizarTotal();
+                    guardarCarrito();
+                });
+            });
+
+            // Inicializa los valores
+            actualizarTotal();
+            actualizarContador();
+        });
+    </script>
+</body>
+</html>

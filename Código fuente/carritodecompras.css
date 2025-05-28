@@ -1,46 +1,51 @@
 /* ===================
-   1. ESTILOS GENERALES
+   ESTILOS GENERALES
 ====================== */
+
+/* Estilos base para el cuerpo del documento */
 body {
     font-family: 'Montserrat', 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5dc;
-    color: #333;
-    line-height: 1.6;
+    background-color: #f5f5dc; /* Fondo color crema */
+    color: #333; /* Color de texto principal */
+    line-height: 1.6; /* Espaciado entre líneas */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* ===================
-   2. ENCABEZADO
+   ENCABEZADO
 ====================== */
+
+/* Estilos para la cabecera fija en la parte superior */
 header {
     background: linear-gradient(to right, #1a1a1a, #2e2e2e);
-    color: #f0e68c;
+    color: #f0e68c; /* Color amarillo claro para el texto */
     padding: 1.5em 2em;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
-    z-index: 100;
-    background-attachment: fixed;
+    z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.logo a {
-    text-decoration: none;
-}
-
+/* Estilos para el logo */
 .logo img {
     max-height: 50px;
-    max-width: 50px;
     transition: transform 0.2s ease-in-out;
+    width: auto;
 }
 
+/* Efecto hover para el logo */
 .logo img:hover {
     transform: scale(1.05);
 }
 
+/* Estilos para la navegación principal */
 nav ul {
     list-style: none;
     display: flex;
@@ -49,66 +54,105 @@ nav ul {
     padding: 0;
 }
 
+/* Estilos para los enlaces de navegación */
 nav ul li a {
     color: #f0e68c;
     text-decoration: none;
-    font-weight: 400;
-    transition: color 0.3s ease, font-weight 0.3s ease;
+    font-weight: 500;
+    padding: 0.5em 0;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #d4af37;
-    font-weight: 600;
+/* Efecto hover y focus para enlaces de navegación */
+nav ul li a:hover,
+nav ul li a:focus {
+    color: #d4af37; /* Amarillo dorado */
+    outline: none;
 }
 
+/* Subrayado animado para enlaces activos */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #d4af37;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a:focus::after {
+    width: 100%;
+}
+
+/* Estilos para el icono del carrito */
 .carrito a {
     color: #f0e68c;
     text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
     transition: color 0.3s ease;
-    font-weight: 400;
 }
 
+/* Efecto hover para el carrito */
 .carrito a:hover {
     color: #d4af37;
-    font-weight: 600;
+}
+
+/* Contador del carrito */
+.carrito #contador-carrito {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    font-weight: bold;
 }
 
 /* ===================
-   3. CONTENIDO PRINCIPAL
+   CONTENIDO PRINCIPAL
 ====================== */
+
+/* Contenedor principal del contenido */
 .contenedor-principal {
     padding: 4em 2em;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+    flex: 1;
 }
 
+/* Sección del carrito de compras */
 .carrito-compras {
     background-color: #fff;
     padding: 2em;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     animation: fadeInUp 0.8s ease-out;
 }
 
+/* Animación de entrada para el carrito */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
     }
 }
 
-.carrito-compras h2 {
-    color: #222;
-    margin-bottom: 1.5em;
-    text-align: center;
-    font-size: 2.5em;
-    letter-spacing: -0.02em;
-}
-
+/* Estilos para cada item del carrito */
 .item-carrito {
     display: flex;
     align-items: center;
@@ -116,43 +160,66 @@ nav ul li a:hover {
     margin-bottom: 2em;
     padding-bottom: 1.5em;
     border-bottom: 1px solid #eee;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
+/* Efecto hover para los items del carrito */
 .item-carrito:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilos para la imagen del producto */
 .item-carrito img {
-    max-width: 100px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
     border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Contenedor de detalles del producto */
 .detalles-item {
     margin-left: 2em;
     margin-right: auto;
+    flex: 1;
 }
 
+/* Estilos para el título del producto */
 .detalles-item h3 {
     font-size: 1.2em;
-    margin-bottom: 0.5em;
+    margin: 0 0 0.5em 0;
+    color: #2e2e2e;
 }
 
-.detalles-item p,
-.detalles-item label {
-    font-size: 1.1em;
+/* Estilos para el precio del producto */
+.detalles-item p {
+    margin: 0.5em 0;
+    font-size: 1em;
+    color: #555;
 }
 
+/* Estilos para el input de cantidad */
 .detalles-item input {
-    width: 80px;
+    width: 60px;
     padding: 0.5em;
+    margin-right: 2em;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
-    margin-right: 2em;
+    text-align: center;
+    transition: border-color 0.3s ease;
 }
 
+/* Efecto focus para el input */
+.detalles-item input:focus {
+    border-color: #d4af37;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+/* Estilos para el botón de eliminar */
 .boton-eliminar {
     background-color: #f44336;
     color: #fff;
@@ -161,133 +228,240 @@ nav ul li a:hover {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
+    margin-left: 1em;
 }
 
-.boton-eliminar:hover {
+/* Efecto hover para el botón de eliminar */
+.boton-eliminar:hover,
+.boton-eliminar:focus {
     background-color: #d32f2f;
     transform: scale(1.05);
+    outline: none;
 }
 
+/* Estilos para el total del carrito */
 .total-carrito {
     text-align: right;
-    margin-bottom: 2em;
+    margin: 2em 0;
     font-size: 1.5em;
     font-weight: 700;
+    color: #2e2e2e;
+    padding-top: 1em;
+    border-top: 2px solid #eee;
 }
 
+/* Contenedor de botones de acción */
 .acciones-carrito {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 1em;
+    margin-top: 2em;
 }
 
+/* Estilos base para los botones de acción */
 .acciones-carrito a {
     display: inline-block;
     padding: 1em 2.5em;
     border-radius: 5px;
     font-size: 1.1em;
     font-weight: 600;
-    text-align: center;
     min-width: 200px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
 }
 
+/* Botón principal (Finalizar Compra) */
 .acciones-carrito a.boton-principal {
     background-color: #f0e68c;
     color: #222;
+    border: 2px solid #f0e68c;
 }
 
-.acciones-carrito a.boton-principal:hover {
+/* Efecto hover para el botón principal */
+.acciones-carrito a.boton-principal:hover,
+.acciones-carrito a.boton-principal:focus {
     background-color: #d4af37;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    border-color: #d4af37;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    outline: none;
 }
 
+/* Botón secundario (Seguir Comprando) */
 .acciones-carrito a.boton-secundario {
-    background-color: #ddd;
+    background-color: transparent;
     color: #333;
+    border: 2px solid #ddd;
 }
 
-.acciones-carrito a.boton-secundario:hover {
-    background-color: #ccc;
-    transform: scale(1.05);
+/* Efecto hover para el botón secundario */
+.acciones-carrito a.boton-secundario:hover,
+.acciones-carrito a.boton-secundario:focus {
+    background-color: #f5f5f5;
+    border-color: #ccc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    outline: none;
 }
 
 /* ===================
-   4. PIE DE PÁGINA
+   PIE DE PÁGINA
 ====================== */
+
 footer {
     background-color: #222;
     color: #f0e68c;
     padding: 2.5em;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 4em;
+    margin-top: auto; /* Mantiene el footer abajo */
+}
+
+/* Información de contacto */
+.informacion-contacto {
+    margin-bottom: 1.5em;
 }
 
 .informacion-contacto p {
-    margin: 0.7em 0;
-    font-size: 1.1em;
+    margin: 0.5em 0;
+    font-size: 0.95em;
 }
 
+/* Contenedor de redes sociales */
 .redes-sociales {
     margin: 1.5em 0;
     display: flex;
-    gap: 1em;
+    gap: 1.5em;
+    justify-content: center;
 }
 
+/* Estilos para los iconos de redes sociales */
 .redes-sociales a {
     display: inline-block;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease;
 }
 
-.redes-sociales a:hover {
-    transform: scale(1.2);
+.redes-sociales a:hover,
+.redes-sociales a:focus {
+    transform: scale(1.2) translateY(-3px);
+    outline: none;
 }
 
 .redes-sociales img {
     height: 40px;
-    width: auto;
+    width: 40px;
+    object-fit: contain;
 }
 
+/* Texto de copyright */
 .copyright {
     font-size: 0.9em;
     margin-top: 1.5em;
-    color: #ddd;
-}
-
-/* Estilos para enlaces dentro del texto */
-a {
-    color: #0078d7;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-a:hover {
-    color: #0056b3;
-    text-decoration: underline;
+    color: rgba(240, 230, 140, 0.7);
 }
 
 /* ===================
-   5. RESPONSIVE
+   NOTIFICACION TOAST
 ====================== */
+
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 1em;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estado visible del toast */
+.toast.show {
+    visibility: visible;
+    bottom: 50px;
+    opacity: 1;
+}
+
+/* ===================
+   RESPONSIVE DESIGN
+====================== */
+
 @media (max-width: 768px) {
+    /* Ajustes para el header en móviles */
+    header {
+        flex-direction: column;
+        padding: 1em;
+        position: relative;
+    }
+    
+    .logo {
+        margin-bottom: 1em;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 0.5em;
+        align-items: center;
+    }
+    
+    /* Ajustes para los items del carrito */
     .item-carrito {
         flex-direction: column;
         text-align: center;
+        padding: 1em;
     }
+    
     .detalles-item {
         margin: 1em 0;
     }
+    
+    .boton-eliminar {
+        margin-top: 1em;
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    /* Ajustes para los botones de acción */
     .acciones-carrito {
         flex-direction: column;
     }
+    
     .acciones-carrito a {
-        min-width: 100%;
+        width: 100%;
+    }
+    
+    /* Ajustes para el footer */
+    footer {
+        padding: 1.5em;
+    }
+    
+    .redes-sociales {
+        flex-wrap: wrap;
+    }
+}
+
+/* Media query para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .contenedor-principal {
+        padding: 2em 1em;
+    }
+    
+    .carrito-compras {
+        padding: 1em;
+    }
+    
+    .detalles-item input {
+        margin-right: 0;
+        margin-bottom: 1em;
     }
 }
