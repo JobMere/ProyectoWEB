@@ -270,3 +270,25 @@ a:hover {
         font-size: 0.9em;
     }
 }
+#mensaje-enviado {
+    margin-top: 2em;
+    padding: 2em;
+    background-color: #e6ffe6;
+    border: 1px solid #ccffcc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#mensaje-enviado i.fa-check-circle {
+    color: #4CAF50;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+#mensaje-enviado p {
+    color: #333;
+}
+
+#mensaje-enviado p:first-child {
+    font-weight: bold;
+}

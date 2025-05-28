@@ -56,6 +56,14 @@
             <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
         </div>
         <button type="submit" class="boton-principal"><i class="fas fa-paper-plane"></i> Enviar Mensaje</button>
+        </form>
+
+    <div id="mensaje-enviado" style="display: none; margin-top: 20px; padding: 20px; background-color: #e6ffe6; border: 1px solid #ccffcc; border-radius: 5px; text-align: center;">
+        <i class="fas fa-check-circle" style="color: #4CAF50; font-size: 2em; margin-bottom: 10px;"></i>
+        <p style="color: #333; font-weight: bold;">¡Mensaje enviado con éxito!</p>
+        <p style="color: #555;">Gracias por tu contacto. Te responderemos a la brevedad.</p>
+    </div>
+</section>
     </form>
 </section>
     </main>
@@ -87,6 +95,22 @@
             alert('Por favor, ingresa un correo electrónico válido.');
         }
         // Aquí podrías agregar más validaciones
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const formularioContacto = document.querySelector('.contacto form');
+        const formularioContainer = formularioContacto; // Usamos el formulario directamente para ocultar
+        const mensajeEnviadoDiv = document.getElementById('mensaje-enviado');
+
+        formularioContacto.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío real del formulario
+
+            // Aquí podrías añadir la lógica para enviar el formulario a un servidor
+
+            // Simulación de envío exitoso:
+            formularioContainer.style.display = 'none'; // Ocultar el formulario
+            mensajeEnviadoDiv.style.display = 'block'; // Mostrar el mensaje de éxito
+        });
     });
 </script>
 </body>
