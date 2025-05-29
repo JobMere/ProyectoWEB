@@ -8,6 +8,10 @@ body {
     line-height: 1.6;
 }
 
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 /* Puedes mantener 'Arial' en otras partes si lo prefieres o reemplazarlo gradualmente */
 
 /* Encabezado */
@@ -151,7 +155,11 @@ nav ul li a:hover {
 
 .boton-principal:hover {
   background-color: #d4af37;
-  transform: scale(1.05);
+  transform: scale(1.50);
+}
+.boton-principal:focus,
+.boton-principal:active {
+    animation: pulsar 1s ease-in-out infinite alternate; /* Animación de 1 segundo, suave, infinita, alternando */
 }
 
 /* Sección de categorías principales */
@@ -354,5 +362,16 @@ a:hover {
     .informacion-contacto p {
         font-size: 1em;
         margin: 0.5em 0;
+    }
+}
+@keyframes pulsar {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(1);
     }
 }
