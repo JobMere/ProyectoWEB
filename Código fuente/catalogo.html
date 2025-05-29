@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
 </head>
 <body>
     <header>
+        
         <div class="logo">
             <a href="index.html"><img src="../Multimedia/WhatsApp Image 2025-04-22 at 12.09.44 AM.jpeg" alt="Hogar de Muebles" width="250"></a>
         </div>
@@ -26,29 +27,42 @@
             </ul>
         </nav>
         <div class="carrito">
-            <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (0)</a>
-        </div>
+    <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (0)</a>
+</div>
     </header>
 
     <main class="contenedor-principal">
         <section class="catalogo">
             <h1>Nuestro Catálogo</h1>
-            <div class="grid-productos">
-                <article class="producto" data-nombre="Mueble 1" data-precio="199.99">
-                    <img src="ruta/a/mueble1.jpg" alt="Mueble 1">
-                    <h3>Mueble 1</h3>
-                    <p>Descripción del Mueble 1.</p>
-                    <p>Precio: S/ 199.99</p>
-                    <button class="boton-principal">Agregar al Carrito</button>
+            <div class="grid-categorias">
+                <article class="categoria">
+                    <a href="catalogo/dormitorios.html">
+                        <img src="../Multimedia/dormitorio/imagenes/Cabeceras y Camas/portadadecama.jpg" alt="Muebles para Dormitorios" width="250">
+                        <h3>Dormitorios</h3>
+                    </a>
+                    <a href="catalogo/dormitorios.html" class="boton-ver">Ver</a>
                 </article>
-                <article class="producto" data-nombre="Mueble 2" data-precio="249.99">
-                    <img src="ruta/a/mueble2.jpg" alt="Mueble 2">
-                    <h3>Mueble 2</h3>
-                    <p>Descripción del Mueble 2.</p>
-                    <p>Precio: S/ 249.99</p>
-                    <button class="boton-principal">Agregar al Carrito</button>
+                <article class="categoria">
+                    <a href="catalogo/salas.html">
+                        <img src="../Multimedia/salas/Muebles de Sala/imagenes/28ad4f501deb036e5085a318959c4c54.jpg" alt="Muebles para Salas" width="250">
+                        <h3>Salas</h3>
+                    </a>
+                    <a href="catalogo/salas.html" class="boton-ver">Ver</a>
                 </article>
-                <!-- Agrega más productos aquí -->
+                <article class="categoria">
+                    <a href="catalogo/cocinas.html">
+                        <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/1479/PMP00003585046/full_image-1.jpeg" alt="Muebles para Cocinas" width="250">
+                        <h3>Cocinas</h3>
+                    </a>
+                    <a href="catalogo/cocinas.html" class="boton-ver">Ver</a>
+                </article>
+                <article class="categoria">
+                    <a href="catalogo/escritorios.html">
+                        <img src="../Multimedia/Comedor/Juegos de comedor/imagenes/4737841554a0955c502a163618182d82.jpg" alt="Escritorios" width="250">
+                        <h3>Comedor</h3>
+                    </a>
+                    <a href="catalogo/escritorios.html" class="boton-ver">Ver</a>
+                </article>
             </div>
         </section>
     </main>
@@ -60,57 +74,20 @@
             <p>Dirección: Urb. San José JR "C" 137, Lima</p>
         </div>
         <div class="redes-sociales">
-            <a href="https://www.facebook.com/share/1GbW6htRDd/" target="_blank"><img src="https://ylva-verlag.de/wp-content/uploads/2020/07/facebook-800x800.png" alt="Facebook"></a>
-            <a href="https://www.instagram.com/hogardmuebles?igsh=NDh6NGc1dmhhbHg4" target="_blank"><img src="https://png.pngtree.com/png-clipart/20221019/original/pngtree-instagram-icon-png-image_8704817.png" alt="Instagram"></a>
-        </div>
+        <a href="https://www.facebook.com/share/1GbW6htRDd/" target="_blank"><img src="https://ylva-verlag.de/wp-content/uploads/2020/07/facebook-800x800.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/hogardmuebles?igsh=NDh6NGc1dmhhbHg4" target="_blank"><img src="https://png.pngtree.com/png-clipart/20221019/original/pngtree-instagram-icon-png-image_8704817.png" alt="Instagram"></a>
+    </div>
         <p class="copyright">&copy; 2023 Tu Tienda de Muebles de Melamina. Todos los derechos reservados.</p>
     </footer>
-
     <script>
         // Aquí puedes agregar la lógica para agregar productos al carrito con JavaScript
         const botonesAgregarCarrito = document.querySelectorAll('.boton-principal');
         botonesAgregarCarrito.forEach(boton => {
             boton.addEventListener('click', () => {
-                // Obtener el artículo del producto
-                const producto = boton.closest('.producto');
-                const nombre = producto.getAttribute('data-nombre');
-                const precio = parseFloat(producto.getAttribute('data-precio'));
-
-                // Agregar el producto al carrito
-                agregarAlCarrito(nombre, precio);
+                // Obtener información del producto y agregar al carrito
+                alert('Producto agregado al carrito'); // Esto es solo un ejemplo
             });
         });
-
-        // Función para agregar al carrito
-        function agregarAlCarrito(nombre, precio) {
-            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            
-            // Verificar si el producto ya está en el carrito
-            const productoExistente = carrito.find(item => item.nombre === nombre);
-            if (productoExistente) {
-                productoExistente.cantidad += 1; // Aumentar la cantidad
-            } else {
-                carrito.push({ nombre, precio, cantidad: 1 }); // Agregar nuevo producto
-            }
-
-            // Guardar el carrito actualizado en localStorage
-            localStorage.setItem('carrito', JSON.stringify(carrito));
-
-            // Actualizar el contador del carrito en la cabecera
-            actualizarContadorCarrito();
-            
-            alert(`${nombre} agregado al carrito`);
-        }
-
-        // Función para actualizar el contador del carrito
-        function actualizarContadorCarrito() {
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
-            document.querySelector('.carrito a').textContent = `Carrito (${totalItems})`;
-        }
-
-        // Inicializar el contador al cargar la página
-        document.addEventListener('DOMContentLoaded', actualizarContadorCarrito);
     </script>
 </body>
 </html>
