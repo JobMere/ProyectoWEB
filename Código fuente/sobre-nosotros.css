@@ -79,7 +79,7 @@ nav ul li a:hover {
 }
 
 .sobre-nosotros {
-    background-color: #fff;
+    background-color: #F5F1E9;
     padding: 2em;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -157,4 +157,60 @@ a {
 a:hover {
     color: #0056b3;
     text-decoration: underline;
+}
+
+/* divicion para la mision y vision */
+
+.bottom-section {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f4f4f4;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.bottom-section div {
+  max-width: 400px;
+}
+
+.bottom-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.bottom-section p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* transiciones */
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.zoom-in {
+  animation: zoomIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out;
 }
