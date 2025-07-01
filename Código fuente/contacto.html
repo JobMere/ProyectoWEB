@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Hogar D'muebles</title>
-    <meta name="description" content="Contáctanos para consultas, pedidos o más información sobre nuestros muebles.">
     <link rel="stylesheet" href="contacto.css">
 </head>
-<body background="fondo-sobrenosotros.png">
+<body>
     <header>
         <div class="logo">
-            <a href="index.html"><img src="../Multimedia/WhatsApp Image 2025-04-22 at 12.09.44 AM.jpeg" alt="Hogar de Muebles" width="250"></a>
+            <a href="index.html"><img src="../Multimedia/WhatsApp Image 2025-04-22 at 12.09.44 AM.jpeg" alt="Hogar de Muebles"></a>
         </div>
         <nav>
             <ul>
@@ -27,92 +25,70 @@
             </ul>
         </nav>
         <div class="carrito">
-    <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (0)</a>
-</div>
+            <a href="carrito.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count">Carrito (0)</span></a>
+        </div>
     </header>
 
     <main class="contenedor-principal">
         <section class="contacto">
-    <h1><i class="fas fa-envelope"></i> Contáctanos</h1>
-    <p>
-        Puedes contactarnos a través de los siguientes medios:
-    </p>
-    <ul>
-        <li><strong><i class="fas fa-phone"></i> Teléfono:</strong> +51 918429289</li>
-        <li><strong><i class="fas fa-envelope"></i> Email:</strong> demuebleshogar@gmail.com</li>
-        <li><strong><i class="fas fa-map-marker-alt"></i> Dirección:</strong> Urb. San José JR "C" 137, Lima</li>
-    </ul>
-    <form action="/enviar-formulario-contacto" method="post">
-        <div class="campo">
-            <label for="nombre"><i class="fas fa-user"></i> Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-        </div>
-        <div class="campo">
-            <label for="email"><i class="fas fa-envelope"></i> Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="campo">
-            <label for="mensaje"><i class="fas fa-comment-dots"></i> Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="boton-principal"><i class="fas fa-paper-plane"></i> Enviar Mensaje</button>
-        </form>
-        <div class="loader"></div>
-
-    <div id="mensaje-enviado" style="display: none; margin-top: 20px; padding: 20px; background-color: #e6ffe6; border: 1px solid #ccffcc; border-radius: 5px; text-align: center;">
-        <i class="fas fa-check-circle" style="color: #4CAF50; font-size: 2em; margin-bottom: 10px;"></i>
-        <p style="color: #333; font-weight: bold;">¡Mensaje enviado con éxito!</p>
-        <p style="color: #555;">Gracias por tu contacto. Te responderemos a la brevedad.</p>
-    </div>
-</section>
-    </form>
-</section>
+            <h1><i class="fas fa-envelope"></i> Contáctanos</h1>
+            <p>
+                ¿Tienes preguntas sobre nuestros productos? Completa el formulario y te responderemos a la brevedad.
+            </p>
+            <ul>
+                <li class="contacto-info-item"><i class="fas fa-phone"></i> <strong>Teléfono:</strong> +51 918429289</li>
+                <li class="contacto-info-item"><i class="fas fa-envelope"></i> <strong>Email:</strong> demuebleshogar@gmail.com</li>
+                <li class="contacto-info-item"><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> Urb. San José JR "C" 137, Lima</li>
+            </ul>
+            <form id="formulario-contacto">
+                <div class="campo">
+                    <input type="text" id="nombre" name="nombre" placeholder=" " required>
+                    <label for="nombre" class="floating-label"><i class="fas fa-user"></i> Nombre completo</label>
+                    <div class="error-mensaje" id="nombre-error"></div>
+                </div>
+                <div class="campo">
+                    <input type="email" id="email" name="email" placeholder=" " required>
+                    <label for="email" class="floating-label"><i class="fas fa-envelope"></i> Correo electrónico</label>
+                    <div class="error-mensaje" id="email-error"></div>
+                </div>
+                <div class="campo">
+                    <textarea id="mensaje" name="mensaje" placeholder=" " required></textarea>
+                    <label for="mensaje" class="floating-label"><i class="fas fa-comment-dots"></i> Tu mensaje</label>
+                    <div class="error-mensaje" id="mensaje-error"></div>
+                </div>
+                <button type="submit" class="boton-principal btn-hover-effect">
+                    <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                </button>
+            </form>
+            <div class="loader" id="form-loader"></div>
+            <div id="mensaje-enviado">
+                <i class="fas fa-check-circle"></i>
+                <p>¡Mensaje enviado con éxito!</p>
+                <p>Gracias por tu contacto. Te responderemos a la brevedad.</p>
+                <button id="nuevo-mensaje-btn" class="btn-hover-effect">
+                    <i class="fas fa-plus"></i> Enviar otro mensaje
+                </button>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="informacion-contacto">
-            <p>Teléfono: +51 918429289</p>
-            <p>Email: demuebleshogar@gmail.com</p>
-            <p>Dirección: Urb. San José JR "C" 137, Lima</p>
+            <p><i class="fas fa-phone"></i> Teléfono: +51 918429289</p>
+            <p><i class="fas fa-envelope"></i> Email: demuebleshogar@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Dirección: Urb. San José JR "C" 137, Lima</p>
         </div>
         <div class="redes-sociales">
-        <a href="https://www.facebook.com/share/1GbW6htRDd/" target="_blank"><img src="https://ylva-verlag.de/wp-content/uploads/2020/07/facebook-800x800.png" alt="Facebook"></a>
-        <a href="https://www.instagram.com/hogardmuebles?igsh=NDh6NGc1dmhhbHg4" target="_blank"><img src="https://png.pngtree.com/png-clipart/20221019/original/pngtree-instagram-icon-png-image_8704817.png" alt="Instagram"></a>
-    </div>
-        <p class="copyright">&copy; 2023 Tu Tienda de Muebles de Melamina. Todos los derechos reservados.</p>
+            <a href="https://www.facebook.com/share/1GbW6htRDd/" target="_blank" class="social-icon">
+                <img src="https://ylva-verlag.de/wp-content/uploads/2020/07/facebook-800x800.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/hogardmuebles?igsh=NDh6NGc1dmhhbHg4" target="_blank" class="social-icon">
+                <img src="https://png.pngtree.com/png-clipart/20221019/original/pngtree-instagram-icon-png-image_8704817.png" alt="Instagram">
+            </a>
+        </div>
+        <p class="copyright">&copy; <span id="current-year"></span> Hogar D'muebles. Todos los derechos reservados.</p>
     </footer>
-    <script>
-    // Ejemplo de validación básica del formulario de contacto
-    document.querySelector('form').addEventListener('submit', (event) => {
-        const nombre = document.getElementById('nombre').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const mensaje = document.getElementById('mensaje').value.trim();
 
-        if (nombre === '' || email === '' || mensaje === '') {
-            event.preventDefault(); // Evita que se envíe el formulario
-            alert('Por favor, completa todos los campos.');
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            event.preventDefault();
-            alert('Por favor, ingresa un correo electrónico válido.');
-        }
-        // Aquí podrías agregar más validaciones
-    });
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        const formularioContacto = document.querySelector('.contacto form');
-        const formularioContainer = formularioContacto; // Usamos el formulario directamente para ocultar
-        const mensajeEnviadoDiv = document.getElementById('mensaje-enviado');
-
-        formularioContacto.addEventListener('submit', function(event) {
-            event.preventDefault(); // Evitar el envío real del formulario
-
-            // Aquí podrías añadir la lógica para enviar el formulario a un servidor
-
-            // Simulación de envío exitoso:
-            formularioContainer.style.display = 'none'; // Ocultar el formulario
-            mensajeEnviadoDiv.style.display = 'block'; // Mostrar el mensaje de éxito
-        });
-    });
-</script>
+    <script src="contacto.js"></script>
 </body>
 </html>

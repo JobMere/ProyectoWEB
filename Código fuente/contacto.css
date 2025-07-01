@@ -122,6 +122,7 @@ nav ul li a:hover {
 .contacto .campo {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .contacto label {
@@ -136,7 +137,7 @@ nav ul li a:hover {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contacto input:focus,
@@ -148,6 +149,7 @@ nav ul li a:hover {
 
 .contacto textarea {
     resize: vertical;
+    min-height: 120px;
 }
 
 .contacto button {
@@ -214,18 +216,154 @@ footer {
     color: #ddd;
 }
 
-/* Estilos para enlaces dentro del texto */
-a {
-    color: #0078d7;
-    text-decoration: none;
-    transition: color 0.2s ease;
+/* Estilos específicos para la página de contacto */
+.error-mensaje {
+    color: #e74c3c;
+    font-size: 0.85em;
+    margin-top: 5px;
+    display: none;
 }
 
-a:hover {
-    color: #0056b3;
-    text-decoration: underline;
+.campo.error input,
+.campo.error textarea {
+    border-color: #e74c3c;
 }
-/* Media query para pantallas más pequeñas (ej. tablets) */
+
+.campo.success input,
+.campo.success textarea {
+    border-color: #2ecc71;
+}
+
+.floating-label {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: #999;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.campo.focused .floating-label,
+input:not(:placeholder-shown) + .floating-label,
+textarea:not(:placeholder-shown) + .floating-label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.8em;
+    background-color: white;
+    padding: 0 5px;
+    color: #d4af37;
+}
+
+#mensaje-enviado {
+    margin-top: 2em;
+    padding: 2em;
+    background-color: #e6ffe6;
+    border: 1px solid #ccffcc;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#mensaje-enviado i.fa-check-circle {
+    color: #4CAF50;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+#mensaje-enviado p {
+    color: #333;
+}
+
+#mensaje-enviado p:first-child {
+    font-weight: bold;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    display: none;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.social-icon {
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+.contacto-info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+
+.contacto-info-item:hover {
+    transform: translateX(5px);
+}
+
+.contacto-info-item i {
+    color: #d4af37;
+    width: 20px;
+    text-align: center;
+}
+
+.btn-hover-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hover-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.btn-hover-effect:hover::after {
+    left: 100%;
+}
+
+/* Animaciones */
+.campo {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+.campo:nth-child(1) { animation-delay: 0.1s; }
+.campo:nth-child(2) { animation-delay: 0.2s; }
+.campo:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
     .contenedor-principal {
         padding: 3em 1em;
@@ -254,9 +392,23 @@ a:hover {
     .contacto button {
         width: 100%;
     }
+
+    header {
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    nav ul {
+        margin-top: 1em;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0.5em 1em;
+    }
 }
 
-/* Media query para pantallas aún más pequeñas (ej. móviles) */
 @media (max-width: 480px) {
     .contacto h1 {
         font-size: 1.8em;
@@ -269,39 +421,4 @@ a:hover {
     .contacto ul li {
         font-size: 0.9em;
     }
-}
-#mensaje-enviado {
-    margin-top: 2em;
-    padding: 2em;
-    background-color: #e6ffe6;
-    border: 1px solid #ccffcc;
-    border-radius: 5px;
-    text-align: center;
-}
-
-#mensaje-enviado i.fa-check-circle {
-    color: #4CAF50;
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-#mensaje-enviado p {
-    color: #333;
-}
-
-#mensaje-enviado p:first-child {
-    font-weight: bold;
-}
-.loader {
-    border: 4px solid #f3f3f3; /* Light grey border */
-    border-top: 4px solid #3498db; /* Blue border-top */
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
 }
