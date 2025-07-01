@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awexsome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hogar D'muebles</title>
@@ -9,22 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="Encuentra muebles de melamina de alta calidad para tu hogar. ¡Visítanos!">
     <link rel="stylesheet" href="index.css">
-    <!-- Font Awesome para iconos (carrito, menú hamburguesa) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" xintegrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="../Multimedia/WhatsApp Image 2025-04-22 at 12.09.44 AM.jpeg" type="image/x.icon">
+    <link rel="icon" href="../Multimedia/WhatsApp Image 2025-04-22 at 12.09.44 AM.jpeg" type="image/x.icon"
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="index.html"><img src="https://placehold.co/250x50/f0e68c/222?text=Hogar+D'muebles" alt="Hogar de Muebles" width="250"></a>
+            <a href="index.html"><img src="../Multimedia/WhatsApp Image 2025-04-22 at 12.09.44 AM.jpeg" alt="Hogar de Muebles"width="250"></a>
         </div>
-        <!-- Botón para el menú responsivo (visible solo en móviles) -->
-        <button class="menu-toggle" aria-label="Abrir menú de navegación">
-            <i class="fas fa-bars"></i>
-        </button>
-        <nav class="main-nav">
+        <nav>
             <ul>
-                <li><a href="#hero-section">Inicio</a></li> <!-- Enlace a la sección hero con ID -->
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
                 <li><a href="ofertas.html">Ofertas</a></li>
                 <li><a href="sobrenosotros.html">Sobre Nosotros</a></li>
@@ -32,60 +28,59 @@
             </ul>
         </nav>
         <div class="carrito">
-            <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (<span id="cart-item-count">0</span>)</a>
+        <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (0)</a>
         </div>
     </header>
 
     <main>
-        <section id="hero-section" class="hero"> <!-- Añadido ID para el scroll suave -->
+        <section class="hero">
             <h1>Muebles para tu hogar con Diseño y Calidad</h1>
             <p>Transforma tus espacios con nuestros muebles funcionales y modernos.</p>
             <a href="catalogo.html" class="boton-principal">Ver Catálogo</a>
         </section>
         
-        <section class="categorias-principales">     
+        <section class="categorias-principales">    
             <h2>Categorías Populares</h2>
             <div class="grid-categorias">
                 <article class="categoria">
                     <a href="catalogo/dormitorios.html">
-                        <img src="https://placehold.co/250x200/f5f5dc/222?text=Dormitorios" alt="Muebles para Dormitorios">
+                        <img src="../Multimedia/dormitorio/imagenes/Cabeceras y Camas/portadadecama.jpg" alt="Muebles para Dormitorios" width="250">
                         <h3>Dormitorios</h3>
                     </a>
                 </article>
                 <article class="categoria">
                     <a href="catalogo/salas.html">
-                        <img src="https://placehold.co/250x200/f5f5dc/222?text=Salas" alt="Muebles para Salas">
+                        <img src="../Multimedia\salas\Muebles de Sala\imagenes\28ad4f501deb036e5085a318959c4c54.jpg" alt="Muebles para Salas" width="250">
                         <h3>Salas</h3>
                     </a>
                 </article>
                 <article class="categoria">
                     <a href="catalogo/cocinas.html">
-                        <img src="https://placehold.co/250x200/f5f5dc/222?text=Cocinas" alt="Muebles para Cocinas">
+                        <img src="https://rimage.ripley.com.pe/home.ripley/Attachment/MKP/1479/PMP00003585046/full_image-1.jpeg" alt="Muebles para Cocinas" width="250">
                         <h3>Cocinas</h3>
                     </a>
                 </article>
                 <article class="categoria">
                     <a href="catalogo/escritorios.html">
-                        <img src="https://placehold.co/250x200/f5f5dc/222?text=Escritorios" alt="Escritorios">
+                        <img src="../Multimedia\Comedor\Juegos de comedor\imagenes\4737841554a0955c502a163618182d82.jpg" alt="comedor" width="250">
                         <h3>Escritorios</h3>
                     </a>
                 </article>
             </div>
         </section>
-    </main>
 
     <footer>
-        <div class="informacion-contacto">
-            <p><i class="fas fa-phone"></i> Teléfono: +51 918429289</p>
-            <p><i class="fas fa-envelope"></i> Email: demuebleshogar@gmail.com</p>
-            <p><i class="fas fa-map-marker-alt"></i> Dirección: Urb. San José JR "C" 137, Piura</p>
-        </div>
-        <div class="redes-sociales">
-            <a href="https://www.facebook.com/share/1GbW6htRDd/" target="_blank"><img src="https://placehold.co/40x40/f0e68c/222?text=FB" alt="Facebook"></a>
-            <a href="https://www.instagram.com/hogardmuebles?igsh=NDh6NGc1dmhhbHg4" target="_blank"><img src="https://placehold.co/40x40/f0e68c/222?text=IG" alt="Instagram"></a>
-        </div>
-        <p class="copyright">&copy; 2025 Tu Tienda de Muebles de Melamina. Todos los derechos reservados.</p>
-    </footer>
+    <div class="informacion-contacto">
+        <p><i class="fas fa-phone"></i> Teléfono: +51 918429289</p>
+        <p><i class="fas fa-envelope"></i> Email: demuebleshogar@gmail.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Dirección: Urb. San José JR "C" 137, Piura</p>
+    </div>
+    <div class="redes-sociales">
+        <a href="https://www.facebook.com/share/1GbW6htRDd/" target="_blank"><img src="https://ylva-verlag.de/wp-content/uploads/2020/07/facebook-800x800.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/hogardmuebles?igsh=NDh6NGc1dmhhbHg4" target="_blank"><img src="https://png.pngtree.com/png-clipart/20221019/original/pngtree-instagram-icon-png-image_8704817.png" alt="Instagram"></a>
+    </div>
+    <p class="copyright">&copy; 2025 Tu Tienda de Muebles de Melamina. Todos los derechos reservados.</p>
+</footer>
 
     <script src="script.js"></script>
 </body>
