@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="catalogo.css">
 </head>
 <body>
+    <body class="page-catalogo"></body>
     <header>
         
         <div class="logo">
@@ -27,14 +28,18 @@
             </ul>
         </nav>
         <div class="carrito">
-    <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (0)</a>
-</div>
+    <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (<span id="cart-item-count">0</span>)</a>
+        </div>
     </header>
 
     <main class="contenedor-principal">
         <section class="catalogo">
             <h1>Nuestro Catálogo</h1>
             <div class="grid-categorias">
+                <div id="productos-grid" class="grid-productos">
+                <!-- Los productos se cargarán aquí dinámicamente con JavaScript -->
+                <p>Cargando productos...</p>
+            </div>
                 <article class="categoria">
                     <a href="catalogo/dormitorios.html">
                         <img src="../Multimedia/dormitorio/imagenes/Cabeceras y Camas/portadadecama.jpg" alt="Muebles para Dormitorios" width="250">
@@ -79,15 +84,21 @@
     </div>
         <p class="copyright">&copy; 2023 Tu Tienda de Muebles de Melamina. Todos los derechos reservados.</p>
     </footer>
-    <script>
-        // Aquí puedes agregar la lógica para agregar productos al carrito con JavaScript
-        const botonesAgregarCarrito = document.querySelectorAll('.boton-principal');
-        botonesAgregarCarrito.forEach(boton => {
-            boton.addEventListener('click', () => {
-                // Obtener información del producto y agregar al carrito
-                alert('Producto agregado al carrito'); // Esto es solo un ejemplo
-            });
-        });
-    </script>
+
+    <!-- Ventana Modal para Detalles de Producto -->
+    <div id="modal-detalles" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <h3 id="modal-titulo">Detalles del Producto</h3>
+            <img id="modal-imagen" src="" alt="Imagen de detalle">
+            <p id="modal-descripcion">Aquí va la descripción detallada del producto.</p>
+            <p>Precio: <span id="modal-precio"></span> PEN</p>
+            <button class="boton-principal" id="modal-boton-accion" data-product-id="">Añadir al Carrito</button>
+        </div>
+    </div>
+    <!-- Notificación toast para mensajes al usuario -->
+    <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>

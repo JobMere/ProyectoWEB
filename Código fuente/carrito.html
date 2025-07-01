@@ -117,8 +117,8 @@
                         <p>Precio: <span class="precio-unitario">${item.precio}</span> PEN</p>
                         <label for="cantidad-${item.nombre.replace(/\s+/g, '')}">Cantidad:</label>
                         <input type="number" id="cantidad-${item.nombre.replace(/\s+/g, '')}" 
-                               min="1" max="10" value="${item.cantidad}" 
-                               aria-label="Cantidad de ${item.nombre}">
+                            min="1" max="10" value="${item.cantidad}" 
+                            aria-label="Cantidad de ${item.nombre}">
                     </div>
                     <button class="boton-eliminar" aria-label="Eliminar ${item.nombre}">Eliminar</button>
                 `;
