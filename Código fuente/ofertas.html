@@ -11,6 +11,8 @@
     <meta name="description" content="Encuentra las mejores ofertas en muebles de melamina. ¡No te las pierdas!">
     <link rel="stylesheet" href="ofertas.css">
 </head>
+<script src="carrito.js"></script>
+
 <body>
     <header>
         <div class="logo">
@@ -26,7 +28,9 @@
             </ul>
         </nav>
         <div class="carrito">
-    <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (0)</a>
+    <a href="carrito.html"><i class="fas fa-shopping-cart"></i>Carrito (<span id="contador-carrito">0</span></a>)
+</div>
+
 </div>
     </header>
 
@@ -39,14 +43,26 @@
                     <h3>Mueble en Oferta 1</h3>
                     <p>Descripción de la oferta.</p>
                     <p><span class="precio-anterior">S/ 1299.99</span> <span class="precio-actual">S/ 1099.99</span></p>
-                    <button class="boton-principal">Ver Detalle</button>
+                    <button class="boton-principal agregar-carrito"
+        data-nombre="Mueble en Oferta 1"
+        data-precio="1099.99"
+        data-imagen="../Multimedia/dormitorio/imagenes/Cabeceras y Camas/portadadecama.jpg">
+    Agregar al carrito
+</button>
+
                 </article>
                 <article class="producto-oferta">
                     <img src="../Multimedia/Comedor/Juegos de comedor/imagenes/4737841554a0955c502a163618182d82.jpg" alt="Oferta Mueble 2">
                     <h3>Mueble en Oferta 2</h3>
                     <p>Descripción de la oferta.</p>
                     <p><span class="precio-anterior">S/ 1899.99</span> <span class="precio-actual">S/ 1599  .99</span></p>
-                    <button class="boton-principal">Ver Detalle</button>
+                    <button class="boton-principal agregar-carrito"
+        data-nombre="Mueble en Oferta 2"
+        data-precio="1599.99"
+        data-imagen="../Multimedia/Comedor/Juegos de comedor/imagenes/4737841554a0955c502a163618182d82.jpg">
+    Agregar al carrito
+</button>
+
                 </article>
                 </div>
         </section>
