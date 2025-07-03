@@ -10,6 +10,7 @@
     <title>Salas - Hogar D'muebles</title>
     <meta name="description" content="Explora nuestra colección de muebles de sala de melamina para tu hogar.">
     <link rel="stylesheet" href="productos.css">
+    <link rel="stylesheet" href="../carrito.css">
 </head>
 <body>
     <header>
@@ -26,7 +27,7 @@
             </ul>
         </nav>
         <div class="carrito">
-            <a href="../carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (0)</a>
+            <a href="#" id="enlace-carrito"><i class="fas fa-shopping-cart"></i> Carrito (<span id="contador-carrito">0</span>)</a>
         </div>
     </header>
     <main class="contenedor-principal">
@@ -188,14 +189,27 @@
                 });
             });
         });
-        
-        // Funcionalidad para agregar al carrito
-        const botonesAgregar = document.querySelectorAll('.btn-agregar');
-        botonesAgregar.forEach(boton => {
-            boton.addEventListener('click', () => {
-                alert('Producto agregado al carrito');
-            });
-        });
     </script>
+
+    <!-- Panel del Carrito -->
+    <div class="carrito-panel activo" id="carrito-panel">
+        <div class="carrito-panel-header">
+            <h2>Tu Carrito</h2>
+            <button class="cerrar-carrito" id="cerrar-carrito">&times;</button>
+        </div>
+        <div class="carrito-panel-body">
+            <!-- Contenido dinámico -->
+        </div>
+        <div class="carrito-panel-footer">
+            <div class="carrito-total">
+                <span>Total:</span>
+                <span id="carrito-total">S/ 0.00</span>
+            </div>
+            <a href="../carrito.html" class="btn-continuar-compra">Continuar Compra</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../carrito.js"></script>
 </body>
 </html>

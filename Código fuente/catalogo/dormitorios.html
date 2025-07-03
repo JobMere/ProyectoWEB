@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,6 +9,7 @@
     <title>Dormitorios - Hogar D'muebles</title>
     <meta name="description" content="Explora nuestra colección de muebles de dormitorio de melamina para tu hogar.">
     <link rel="stylesheet" href="productos.css">
+    <link rel="stylesheet" href="../carrito.css">
 </head>
 <body>
     <header>
@@ -26,7 +26,7 @@
             </ul>
         </nav>
         <div class="carrito">
-            <a href="../carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (0)</a>
+            <a href="#" id="enlace-carrito"><i class="fas fa-shopping-cart"></i> Carrito (<span id="contador-carrito">0</span>)</a>
         </div>
     </header>
     <main class="contenedor-principal">
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="producto-info">
-                        <h3>Cama Matrimonial Moderna</h3>
+                        <h3>Cama Matrimonial Moderna Blanca</h3>
                         <p class="descripcion">Cama matrimonial de melamina con acabado elegante y resistente.</p>
                         <p class="precio">S/ 1,299.99</p>
                         <button class="btn-agregar">Agregar al Carrito</button>
@@ -179,38 +179,57 @@
         </div>
         <p class="copyright">&copy; 2023 Tu Tienda de Muebles de Melamina. Todos los derechos reservados.</p>
     </footer>
+    <!-- Panel del Carrito -->
+    <div class="carrito-panel activo" id="carrito-panel">
+        <div class="carrito-panel-header">
+            <h2>Tu Carrito</h2>
+            <button class="cerrar-carrito" id="cerrar-carrito">&times;</button>
+        </div>
+        <div class="carrito-panel-body">
+            <!-- Contenido dinámico -->
+        </div>
+        <div class="carrito-panel-footer">
+            <div class="carrito-total">
+                <span>Total:</span>
+                <span id="carrito-total">S/ 0.00</span>
+            </div>
+            <a href="../carrito.html" class="btn-continuar-compra">Continuar Compra</a>
+        </div>
+    </div>
+
     <script>
-        // Filtrado de productos
-        const filtros = document.querySelectorAll('.filtro-btn');
-        const productos = document.querySelectorAll('.producto');
-        
-        filtros.forEach(filtro => {
-            filtro.addEventListener('click', () => {
-                // Quitar clase activo de todos los botones
-                filtros.forEach(f => f.classList.remove('activo'));
-                // Agregar clase activo al botón clickeado
-                filtro.classList.add('activo');
-                
-                const categoria = filtro.getAttribute('data-filtro');
-                
-                // Mostrar u ocultar productos según la categoría
-                productos.forEach(producto => {
-                    if (categoria === 'todos' || producto.getAttribute('data-categoria') === categoria) {
-                        producto.style.display = 'block';
-                    } else {
-                        producto.style.display = 'none';
-                    }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filtrado de productos
+            const botonesFiltro = document.querySelectorAll('.filtro-btn');
+            const productos = document.querySelectorAll('.producto');
+            
+            botonesFiltro.forEach(boton => {
+                boton.addEventListener('click', () => {
+                    // Quitar clase activo de todos los botones
+                    botonesFiltro.forEach(b => b.classList.remove('activo'));
+                    // Añadir clase activo al botón clickeado
+                    boton.classList.add('activo');
+                    
+                    const filtro = boton.getAttribute('data-filtro');
+                    
+                    // Mostrar u ocultar productos según el filtro
+                    productos.forEach(producto => {
+                        if (filtro === 'todos') {
+                            producto.style.display = 'flex';
+                        } else {
+                            if (producto.getAttribute('data-categoria') === filtro) {
+                                producto.style.display = 'flex';
+                            } else {
+                                producto.style.display = 'none';
+                            }
+                        }
+                    });
                 });
             });
         });
-        
-        // Funcionalidad para agregar al carrito
-        const botonesAgregar = document.querySelectorAll('.btn-agregar');
-        botonesAgregar.forEach(boton => {
-            boton.addEventListener('click', () => {
-                alert('Producto agregado al carrito');
-            });
-        });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../carrito.js"></script>
 </body>
 </html>

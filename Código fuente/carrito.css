@@ -1,0 +1,203 @@
+.carrito-panel {
+    position: fixed;
+    top: 0;
+    right: -450px; 
+    width: 450px;
+    height: 100%;
+    background-color: #f8f9fa;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.15);
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.carrito-panel.activo {
+    right: 0; 
+}
+
+.carrito-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.carrito-panel-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.cerrar-carrito {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #6c757d;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.cerrar-carrito:hover {
+    color: #343a40;
+    transform: rotate(90deg);
+}
+
+.carrito-panel-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.carrito-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+
+.carrito-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.carrito-item.item-agregado {
+    animation: itemAgregadoAnim 0.7s ease-out;
+}
+
+@keyframes itemAgregadoAnim {
+    0% { background-color: #cce5ff; }
+    100% { background-color: transparent; }
+}
+
+.carrito-item:last-child {
+    margin-bottom: 0;
+}
+
+.carrito-item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.carrito-item-info {
+    flex-grow: 1;
+}
+
+.carrito-item-info h4 {
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.carrito-item-info p {
+    margin: 0;
+    color: #007bff;
+    font-weight: 500;
+}
+
+.carrito-item-cantidad {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.carrito-item-cantidad button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    color: #495057;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1rem;
+    line-height: 1;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.carrito-item-cantidad button:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.carrito-item-cantidad span {
+    padding: 0 15px;
+    font-weight: 500;
+}
+
+.btn-eliminar {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 1.2rem;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.btn-eliminar:hover {
+    color: #a71d2a;
+    transform: scale(1.2);
+}
+
+.carrito-panel-footer {
+    padding: 25px;
+    border-top: 1px solid #e9ecef;
+    background-color: #fff;
+    margin-top: auto; 
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+}
+
+.carrito-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn-continuar-compra {
+    display: block;
+    width: 90%;
+    padding: 18px;
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-continuar-compra:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+.carrito-vacio-msg {
+    text-align: center;
+    color: #6c757d;
+    padding: 40px 20px;
+    font-size: 1.1rem;
+}
+
+.carrito-vacio-msg::before {
+    content: '\f07a'; 
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 20px;
+    color: #ced4da;
+}

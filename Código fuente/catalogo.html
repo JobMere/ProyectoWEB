@@ -10,6 +10,7 @@
     <title>Catálogo - Hogar D'muebles</title>
     <meta name="description" content="Explora nuestro catálogo de muebles de melamina para tu hogar.">
     <link rel="stylesheet" href="catalogo.css">
+    <link rel="stylesheet" href="carrito.css">
 </head>
 <body>
     <body class="page-catalogo"></body>
@@ -28,7 +29,7 @@
             </ul>
         </nav>
         <div class="carrito">
-    <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (<span id="cart-item-count">0</span>)</a>
+    <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (<span id="contador-carrito">0</span>)</a>
         </div>
     </header>
 
@@ -36,10 +37,6 @@
         <section class="catalogo">
             <h1>Nuestro Catálogo</h1>
             <div class="grid-categorias">
-                <div id="productos-grid" class="grid-productos">
-                <!-- Los productos se cargarán aquí dinámicamente con JavaScript -->
-                <p>Cargando productos...</p>
-            </div>
                 <article class="categoria">
                     <a href="catalogo/dormitorios.html">
                         <img src="../Multimedia/dormitorio/imagenes/Cabeceras y Camas/portadadecama.jpg" alt="Muebles para Dormitorios" width="250">
@@ -62,13 +59,12 @@
                     <a href="catalogo/cocinas.html" class="boton-ver">Ver</a>
                 </article>
                 <article class="categoria">
-                    <a href="catalogo/escritorios.html">
+                    <a href="catalogo/comedor.html">
                         <img src="../Multimedia/Comedor/Juegos de comedor/imagenes/4737841554a0955c502a163618182d82.jpg" alt="Escritorios" width="250">
                         <h3>Comedor</h3>
                     </a>
-                    <a href="catalogo/escritorios.html" class="boton-ver">Ver</a>
+                    <a href="catalogo/comedor.html" class="boton-ver">Ver</a>
                 </article>
-            </div>
         </section>
     </main>
 
@@ -85,7 +81,7 @@
         <p class="copyright">&copy; 2023 Tu Tienda de Muebles de Melamina. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Ventana Modal para Detalles de Producto -->
+   
     <div id="modal-detalles" class="modal">
         <div class="modal-contenido">
             <span class="cerrar-modal">&times;</span>
@@ -96,9 +92,30 @@
             <button class="boton-principal" id="modal-boton-accion" data-product-id="">Añadir al Carrito</button>
         </div>
     </div>
-    <!-- Notificación toast para mensajes al usuario -->
+   
     <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
 
     <script src="script.js"></script>
+
+   
+    <div class="carrito-panel activo" id="carrito-panel">
+        <div class="carrito-panel-header">
+            <h2>Tu Carrito</h2>
+            <button class="cerrar-carrito" id="cerrar-carrito">&times;</button>
+        </div>
+        <div class="carrito-panel-body">
+            <!-- Contenido dinámico -->
+        </div>
+        <div class="carrito-panel-footer">
+            <div class="carrito-total">
+                <span>Total:</span>
+                <span id="carrito-total">S/ 0.00</span>
+            </div>
+            <a href="carrito.html" class="btn-continuar-compra">Continuar Compra</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="carrito.js"></script>
 </body>
 </html>

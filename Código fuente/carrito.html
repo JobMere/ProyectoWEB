@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="carritodecompras.css">
 </head>
 
-
 <body>
     <!-- Cabecera del sitio con logo, navegación y carrito -->
     <header aria-label="Cabecera principal">
@@ -86,82 +85,23 @@
     <!-- Notificación toast para mensajes al usuario -->
     <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
 
-    <!-- Scripts de funcionalidad del carrito -->
+
     <script>
-        // Función para mostrar notificaciones toast
-        function mostrarToast(mensaje) {
-            const toast = document.getElementById("toast");
-            toast.textContent = mensaje;
-            toast.classList.add("show");
-            
-            // Oculta el toast después de 3 segundos
-            setTimeout(() => {
-                toast.classList.remove("show");
-            }, 3000);
-        }
-
-        // Función para cargar el carrito desde localStorage
-        function cargarCarrito() {
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            const listaCarrito = document.getElementById('lista-carrito');
-            listaCarrito.innerHTML = ''; // Limpiar la lista antes de cargar
-
-            let total = 0;
-
-            carrito.forEach(item => {
-                const itemCarrito = document.createElement('div');
-                itemCarrito.classList.add('item-carrito');
-                itemCarrito.innerHTML = `
-                    <img src="${item.imagen}" alt="${item.nombre}" width="100" height="100" loading="lazy">
-                    <div class="detalles-item">
-                        <h2>${item.nombre}</h2>
-                        <p>Precio: <span class="precio-unitario">${item.precio}</span> PEN</p>
-                        <label for="cantidad-${item.nombre.replace(/\s+/g, '')}">Cantidad:</label>
-                        <input type="number" id="cantidad-${item.nombre.replace(/\s+/g, '')}" 
-                            min="1" max="10" value="${item.cantidad}" 
-                            aria-label="Cantidad de ${item.nombre}">
-                    </div>
-                    <button class="boton-eliminar" aria-label="Eliminar ${item.nombre}">Eliminar</button>
-                `;
-                listaCarrito.appendChild(itemCarrito);
-                total += item.precio * item.cantidad; // Calcular el total
-            });
-
-            document.getElementById('total-compra').textContent = total.toFixed(2);
-            actualizarContador();
-            configurarBotonesEliminar();
-        }
-
-        // Función para actualizar el contador de productos
+        // Función para actualizar el contador de productos en el navbar
         function actualizarContador() {
+            // Obtiene el carrito de localStorage o un array vacío si no existe
             const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            // Suma las cantidades de todos los productos en el carrito
             const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
-            document.getElementById('contador-carrito').textContent = totalItems;
+            // Actualiza el texto del contador en el HTML
+            const contadorElemento = document.getElementById('contador-carrito');
+            if (contadorElemento) {
+                contadorElemento.textContent = totalItems;
+            }
         }
 
-        // Función para configurar los botones de eliminar
-        function configurarBotonesEliminar() {
-            document.querySelectorAll('.boton-eliminar').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const nombreProducto = this.closest('.item-carrito').querySelector('h2').textContent;
-                    eliminarProducto(nombreProducto);
-                });
-            });
-        }
-
-        // Función para eliminar un producto del carrito
-        function eliminarProducto(nombre) {
-            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            carrito = carrito.filter(item => item.nombre !== nombre);
-            localStorage.setItem('carrito', JSON.stringify(carrito));
-            cargarCarrito();
-            mostrarToast(`${nombre} eliminado del carrito`);
-        }
-
-        // Event listener cuando el DOM está cargado
-        document.addEventListener('DOMContentLoaded', cargarCarrito);
+        // Llama a la función para actualizar el contador cuando la página se ha cargado
+        document.addEventListener('DOMContentLoaded', actualizarContador);
     </script>
-   
-
 </body>
 </html>

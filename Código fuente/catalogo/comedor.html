@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escritorios - JobMere</title>
+    <title>Escritorios</title>
     <link rel="stylesheet" href="productos.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../carrito.css">
 </head>
 <body>
     <!-- Encabezado -->
@@ -24,7 +25,7 @@
             </ul>
         </nav>
         <div class="carrito">
-            <a href="../carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (0)</a>
+            <a href="#" id="enlace-carrito"><i class="fas fa-shopping-cart"></i> Carrito (<span id="contador-carrito">0</span>)</a>
         </div>
     </header>
 
@@ -191,21 +192,28 @@
                     });
                 });
             });
-            
-            // Funcionalidad de agregar al carrito
-            const botonesAgregar = document.querySelectorAll('.btn-agregar');
-            
-            botonesAgregar.forEach(boton => {
-                boton.addEventListener('click', function() {
-                    const producto = this.closest('.producto');
-                    const nombreProducto = producto.querySelector('h3').textContent;
-                    const precio = producto.querySelector('.precio').textContent;
-                    
-                    alert(`Producto agregado al carrito: ${nombreProducto} - ${precio}`);
-                    // Aquí se podría implementar la lógica real del carrito
-                });
-            });
         });
     </script>
+
+    <!-- Panel del Carrito -->
+    <div class="carrito-panel" id="carrito-panel">
+        <div class="carrito-panel-header">
+            <h2>Tu Carrito</h2>
+            <button class="cerrar-carrito" id="cerrar-carrito">&times;</button>
+        </div>
+        <div class="carrito-panel-body">
+            <!-- Contenido dinámico -->
+        </div>
+        <div class="carrito-panel-footer">
+            <div class="carrito-total">
+                <span>Total:</span>
+                <span id="carrito-total">S/ 0.00</span>
+            </div>
+            <a href="../carrito.html" class="btn-continuar-compra">Continuar Compra</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../carrito.js"></script>
 </body>
 </html>

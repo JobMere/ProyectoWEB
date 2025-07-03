@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <script src="script.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awexsome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hogar D'muebles</title>
@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="Encuentra muebles de melamina de alta calidad para tu hogar. ¡Visítanos!">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="carrito.css">
     <link rel="icon" href="../Multimedia/WhatsApp Image 2025-04-22 at 12.09.44 AM.jpeg" type="image/x.icon"
 </head>
 <body>
@@ -24,12 +25,12 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
                 <li><a href="ofertas.html">Ofertas</a></li>
-                <li><a href="sobrenosotros.html">Sobre Nosotros</a></li>
+                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
         <div class="carrito">
-        <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (<span id="cart-item-count">0</span>)</a>
+         <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (<span id="contador-carrito">0</span>)</a>
         </div>
         </div>
     </header>
@@ -85,5 +86,26 @@
 </footer>
 
     <script src="script.js"></script>
+
+    <!-- Panel del Carrito -->
+    <div class="carrito-panel" id="carrito-panel">
+        <div class="carrito-panel-header">
+            <h2>Tu Carrito</h2>
+            <button class="cerrar-carrito" id="cerrar-carrito">&times;</button>
+        </div>
+        <div class="carrito-panel-body">
+            <!-- Contenido dinámico -->
+        </div>
+        <div class="carrito-panel-footer">
+            <div class="carrito-total">
+                <span>Total:</span>
+                <span id="carrito-total">S/ 0.00</span>
+            </div>
+            <a href="carrito.html" class="btn-continuar-compra">Continuar Compra</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="carrito.js"></script>
 </body>
 </html>

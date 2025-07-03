@@ -10,6 +10,7 @@
     <title>Cocinas - Hogar D'muebles</title>
     <meta name="description" content="Explora nuestra colección de muebles de cocina de melamina para tu hogar.">
     <link rel="stylesheet" href="cocina.css">
+    <link rel="stylesheet" href="../carrito.css">
 </head>
 <body>
     <header>
@@ -26,7 +27,7 @@
             </ul>
         </nav>
         <div class="carrito">
-            <a href="../carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (0)</a>
+            <a href="#" id="enlace-carrito"><i class="fas fa-shopping-cart"></i> Carrito (<span id="contador-carrito">0</span>)</a>
         </div>
     </header>
     <main class="contenedor-principal">
@@ -241,37 +242,52 @@
         <p class="copyright">&copy; 2023 Tu Tienda de Muebles de Melamina. Todos los derechos reservados.</p>
     </footer>
     <script>
-        // Filtrado de productos
-        const filtros = document.querySelectorAll('.filtro-btn');
-        const productos = document.querySelectorAll('.producto');
-        
-        filtros.forEach(filtro => {
-            filtro.addEventListener('click', () => {
-                // Quitar clase activo de todos los botones
-                filtros.forEach(f => f.classList.remove('activo'));
-                // Agregar clase activo al botón clickeado
-                filtro.classList.add('activo');
-                
-                const categoria = filtro.getAttribute('data-filtro');
-                
-                // Mostrar u ocultar productos según la categoría
-                productos.forEach(producto => {
-                    if (categoria === 'todos' || producto.getAttribute('data-categoria') === categoria) {
-                        producto.style.display = 'block';
-                    } else {
-                        producto.style.display = 'none';
-                    }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filtrado de productos
+            const filtros = document.querySelectorAll('.filtro-btn');
+            const productos = document.querySelectorAll('.producto');
+            
+            filtros.forEach(filtro => {
+                filtro.addEventListener('click', () => {
+                    // Quitar clase activo de todos los botones
+                    filtros.forEach(f => f.classList.remove('activo'));
+                    // Agregar clase activo al botón clickeado
+                    filtro.classList.add('activo');
+                    
+                    const categoria = filtro.getAttribute('data-filtro');
+                    
+                    // Mostrar u ocultar productos según la categoría
+                    productos.forEach(producto => {
+                        if (categoria === 'todos' || producto.getAttribute('data-categoria') === categoria) {
+                            producto.style.display = 'block';
+                        } else {
+                            producto.style.display = 'none';
+                        }
+                    });
                 });
             });
         });
-        
-        // Funcionalidad para agregar al carrito
-        const botonesAgregar = document.querySelectorAll('.btn-agregar');
-        botonesAgregar.forEach(boton => {
-            boton.addEventListener('click', () => {
-                alert('Producto agregado al carrito');
-            });
-        });
     </script>
+
+    <!-- Panel del Carrito -->
+    <div class="carrito-panel activo" id="carrito-panel">
+        <div class="carrito-panel-header">
+            <h2>Tu Carrito</h2>
+            <button class="cerrar-carrito" id="cerrar-carrito">&times;</button>
+        </div>
+        <div class="carrito-panel-body">
+            <!-- Contenido dinámico -->
+        </div>
+        <div class="carrito-panel-footer">
+            <div class="carrito-total">
+                <span>Total:</span>
+                <span id="carrito-total">S/ 0.00</span>
+            </div>
+            <a href="../carrito.html" class="btn-continuar-compra">Continuar Compra</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../carrito.js"></script>
 </body>
 </html>

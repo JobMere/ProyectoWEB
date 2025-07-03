@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Hogar D'muebles</title>
     <link rel="stylesheet" href="contacto.css">
+    <link rel="stylesheet" href="carrito.css">
 </head>
 <body>
     <header>
@@ -25,7 +26,7 @@
             </ul>
         </nav>
         <div class="carrito">
-            <a href="carrito.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count">Carrito (0)</span></a>
+            <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (<span id="contador-carrito">0</span>)</a>
         </div>
     </header>
 
@@ -90,5 +91,26 @@
     </footer>
 
     <script src="contacto.js"></script>
+
+    <!-- Panel del Carrito -->
+    <div class="carrito-panel" id="carrito-panel">
+        <div class="carrito-panel-header">
+            <h2>Tu Carrito</h2>
+            <button class="cerrar-carrito" id="cerrar-carrito">&times;</button>
+        </div>
+        <div class="carrito-panel-body">
+            <!-- Contenido dinámico -->
+        </div>
+        <div class="carrito-panel-footer">
+            <div class="carrito-total">
+                <span>Total:</span>
+                <span id="carrito-total">S/ 0.00</span>
+            </div>
+            <a href="carrito.html" class="btn-continuar-compra">Continuar Compra</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="carrito.js"></script>
 </body>
 </html>
