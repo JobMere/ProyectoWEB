@@ -10,8 +10,13 @@
     <title>Ofertas - Hogar D'muebles</title>
     <meta name="description" content="Encuentra las mejores ofertas en muebles de melamina. ¡No te las pierdas!">
     <link rel="stylesheet" href="ofertas.css">
-    <link rel="stylesheet" href="carrito.css">
+      
+
 </head>
+<script src="carrito.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 <body>
     <header>
         <div class="logo">
@@ -27,7 +32,9 @@
             </ul>
         </nav>
         <div class="carrito">
-    <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito (<span id="contador-carrito">0</span>)</a>
+    <a href="carrito.html"><i class="fas fa-shopping-cart"></i>Carrito (<span id="contador-carrito">0</span></a>)
+</div>
+
 </div>
     </header>
 
@@ -40,14 +47,26 @@
                     <h3>Mueble en Oferta 1</h3>
                     <p>Descripción de la oferta.</p>
                     <p><span class="precio-anterior">S/ 1299.99</span> <span class="precio-actual">S/ 1099.99</span></p>
-                    <button class="boton-principal">Ver Detalle</button>
+                    <button class="boton-principal agregar-carrito"
+        data-nombre="Mueble en Oferta 1"
+        data-precio="1099.99"
+        data-imagen="../Multimedia/dormitorio/imagenes/Cabeceras y Camas/portadadecama.jpg">
+    Agregar al carrito
+</button>
+
                 </article>
                 <article class="producto-oferta">
                     <img src="../Multimedia/Comedor/Juegos de comedor/imagenes/4737841554a0955c502a163618182d82.jpg" alt="Oferta Mueble 2">
                     <h3>Mueble en Oferta 2</h3>
                     <p>Descripción de la oferta.</p>
                     <p><span class="precio-anterior">S/ 1899.99</span> <span class="precio-actual">S/ 1599  .99</span></p>
-                    <button class="boton-principal">Ver Detalle</button>
+                    <button class="boton-principal agregar-carrito"
+        data-nombre="Mueble en Oferta 2"
+        data-precio="1599.99"
+        data-imagen="../Multimedia/Comedor/Juegos de comedor/imagenes/4737841554a0955c502a163618182d82.jpg">
+    Agregar al carrito
+</button>
+
                 </article>
                 </div>
         </section>
@@ -65,6 +84,28 @@
     </div>
         <p class="copyright">&copy; 2023 Tu Tienda de Muebles de Melamina. Todos los derechos reservados.</p>
     </footer>
-    
+    <!-- Panel lateral del carrito -->
+<div id="carrito-panel" class="carrito-panel oculto">
+  <div class="carrito-header">
+    <h2>Tu Carrito</h2>
+    <span class="cerrar-panel" onclick="cerrarCarrito()">×</span>
+  </div>
+  <div class="carrito-items" id="carrito-items"></div>
+  <div class="carrito-footer">
+    <div class="total">
+      <strong>Total:</strong> <span id="carrito-total">S/ 0.00</span>
+    </div>
+    <button class="boton-continuar" onclick="continuarCompra()">Continuar Compra</button>
+  </div>
+  <div class="carrito">
+  <a href="#" onclick="abrirCarrito()">
+    🛒 <span id="contador-carrito">0</span>
+  </a>
+  <script src="js/carrito.js"></script>
+
+</div>
+
+</div>
+
 </body>
 </html>
